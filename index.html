@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitHub Issues Tracker</title>
+    <!-- <title>GitHub Issues Tracker  </title> -->
+    <title>GitHub Issues Tracker || LogIn</title>
 
     <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,13 +24,66 @@
   </head>
 
   <!-- css file link -->
-   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css" />
   <body>
-    <header>
-           <h1 class="text-[50px]">
-                  Hello
-           </h1>
-    </header>
+    <!-- total login form main part -->
+    <section id="total-login-form-main-parent" class="border">
+      <!-- github logo and GitHub Issues Tracker header part -->
+      <div>
+        <img src="./assets/github-logo.png" alt="github logo" />
+        <h1>GitHub Issues Tracker</h1>
+        <p>Sign in to manage your issues</p>
+      </div>
+
+      <!-- input field username and password part -->
+      <div>
+        <!-- username part -->
+        <p>Username</p>
+        <input
+          type="text"
+          class="input validator"
+          required
+          placeholder="Username"
+          pattern="[A-Za-z][A-Za-z0-9\-]*"
+          minlength="3"
+          maxlength="30"
+          title="Only letters, numbers or dash"
+        />
+        <p>Default: admin</p>
+
+        <!-- password part -->
+        <p>Password</p>
+        <input
+          type="password"
+          class="input validator"
+          required
+          placeholder="Password"
+          minlength="8"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+        />
+        <p>Default: admin123</p>
+      </div>
+
+      <!-- sign in btn part -->
+      <div>
+        <button class="btn btn-primary">Sign In</button>
+      </div>
+
+      <!-- divider part -->
+      <div class="divider">OR</div>
+
+      <!-- Demo Credentials: and instruction part -->
+      <div>
+        <p>instruction</p>
+        <div>
+          <div>
+            <span>Username: admin </span>
+            <span>Password: admin123</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <script src="./js/script.js"></script>
   </body>
