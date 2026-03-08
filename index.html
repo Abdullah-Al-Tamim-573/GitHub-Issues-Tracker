@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <body class="min-h-screen flex justify-center items-center">
     <!-- total login form main part -->
-    <section id="total-login-form-main-parent" class="shadow-2xl p-10 w-[90%] md:w-[50%] lg:w-[50%] xl:w-[40%]">
+    <section id="total-login-form-main-parent" class="shadow-2xl p-10 w-[90%] md:w-[50%] lg:w-[50%] xl:w-[35%]">
       <!-- github logo and GitHub Issues Tracker header part -->
       <div class="text-center space-y-4">
         <img class="mx-auto" src="./assets/github-logo.png" alt="github logo" />
@@ -44,35 +44,36 @@
         <!-- username part -->
         <p class="font-medium text-[#1F2937]">Username</p>
         <input
+        id="username-input-field"
           type="text"
           class="input validator w-full outline-none"
           required
           placeholder="Username"
-          pattern="[A-Za-z][A-Za-z0-9\-]*"
+          
           minlength="3"
           maxlength="30"
-          title="Only letters, numbers or dash"
+          
         />
         <p class="text-[#4A00FF] text-[14px] mb-5">Default: admin</p>
          
         <!-- password part -->
         <p class="font-medium text-[#1F2937]">Password</p>
         <input
-
+           id="password-input-field"
           type="password"
           class="input validator w-full outline-none"
           required
           placeholder="Password"
-          minlength="8"
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-          title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+          
+         
+          
         />
         <p class="text-[#4A00FF] text-[14px]">Default: admin123</p>
       </div>
       <br>
       <!-- sign in btn part -->
       <div>
-        <button class="btn btn-primary w-full">Sign In</button>
+        <button id="signInBtn" class="btn btn-primary w-full">Sign In</button>
       </div>
 
       <!-- divider part -->
@@ -89,7 +90,7 @@
         </div>
       </div>
     </section>
-
-    <script src="./js/script.js"></script>
+   
+    <script src="./js/loginPage.js"></script>
   </body>
 </html>
