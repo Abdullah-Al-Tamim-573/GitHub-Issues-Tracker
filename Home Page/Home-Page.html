@@ -13,6 +13,15 @@
       rel="stylesheet"
     />
 
+    <!-- font awsome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- daisyUi and Taiwind Css CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -54,10 +63,43 @@
 
     <main class="max-w-[80%] mx-auto mt-5 md:mt-[60px]">
       <!-- filter btn section part -->
-      <section id="filter-btn-parent" class="border p-5 md:p-[24px] flex flex-wrap gap-2 items-center">
+      <section
+        id="filter-btn-parent"
+        class="p-5 md:p-[24px] flex flex-wrap gap-2 items-center shadow-lg"
+      >
         <button class="btn py-2 px-10">All</button>
         <button class="btn py-2 px-10">Open</button>
         <button class="btn py-2 px-10">Closed</button>
+      </section>
+
+      <!-- 50 Issues how much issues availavle there part -->
+      <section
+        id="availavle-iiues-parent "
+        class="my-10 shadow-lg p-5 flex flex-col md:flex-row items-center justify-between"
+      >
+        <!-- image and issues count part -->
+        <div
+          class="flex gap-3 items-center flex-col text-center md:flex-row md:text-left"
+        >
+          <div class="bg-[#ece4ff] p-2 rounded-full">
+            <img src="../assets/Aperture.png" alt="Aperture" />
+          </div>
+          <div>
+            <h3 class="text-[1.2rem] font-semibold text-[#1F2937]">
+              50 Issues
+            </h3>
+            <p class="text-[#64748B]">Track and manage your project issues</p>
+          </div>
+        </div>
+
+        <!-- open and closed red and indigo -->
+        <div class="flex gap-5">
+          <p class="text-[#1F2937]  flex items-center gap-2">
+            <i class="fa-solid fa-circle text-[green] text-[10px]"></i> <span class="font-medium">Open</span></p>
+          <p class="text-[#1F2937] flex items-center gap-2">
+            <i class="fa-solid fa-circle text-[#a855f7] text-[10px] "></i>
+            <span class="font-medium">Closed</span></p>
+        </div>
       </section>
     </main>
   </body>
