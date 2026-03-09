@@ -2,6 +2,8 @@
 let allFilterBtn = document.getElementById("all-btn");
 let openFilterBtn = document.getElementById("open-btn");
 let closeFilterBtn = document.getElementById("closed-btn");
+let issuesCount = document.getElementById("issues-count")
+
 
 let displayDataArray = [];
 
@@ -16,8 +18,9 @@ let loadGithubIssuesData = async (command) => {
     closeFilterBtn.classList.remove("btn-primary");
     displayDataArray = issueData.data;
     dispalyGithubIssuesData();
+    issuesCount.innerText = displayDataArray.length
     filterIssuesData(command, issueData.data);
-
+    
 }
 
 
@@ -127,7 +130,9 @@ let filterIssuesData = (command, issueData) => {
         });
         
         allFilterBtn.classList.add("btn-primary");
-        dispalyGithubIssuesData()
+        issuesCount.innerText = displayDataArray.length
+        dispalyGithubIssuesData();
+
     }
 
     else if (command === 'open') {
@@ -138,6 +143,7 @@ let filterIssuesData = (command, issueData) => {
 
         let openDataFilter = displayDataArray.filter(data => data.status === command);
         displayDataArray = openDataFilter;
+        issuesCount.innerText = displayDataArray.length
         dispalyGithubIssuesData()
 
     }
@@ -150,6 +156,7 @@ let filterIssuesData = (command, issueData) => {
 
         let closedDataFilter = displayDataArray.filter(data => data.status === command);
         displayDataArray = closedDataFilter;
+        issuesCount.innerText = displayDataArray.length
         dispalyGithubIssuesData()
     }
 }
