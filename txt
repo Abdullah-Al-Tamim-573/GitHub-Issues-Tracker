@@ -1,0 +1,43 @@
+<!-- 1st part -->
+<div>
+  <div
+    class="badge badge-soft font-medium text-[#EF4444] bg-[#00a96e] px-4 rounded-full"
+  >
+    <img src="../assets/BugDroid.png" alt="BugDroid" />
+    <span class="text-[12px]">Bug</span>
+  </div>
+</div>
+
+   <!-- 1st part -->
+
+              <!-- 2nd part -->
+              <div>
+                <div
+                  class="badge badge-soft border-2 border-[#ffdd56] badge-warning rounded-full px-4  bg-[#fff8db]"
+                >
+                  <img src="../assets/Lifebuoy.png" alt="Lifebuoy" />
+                  <span class="text-[12px]">help wanted</span>
+                </div>
+              </div>
+            </div>
+
+<!-- modal  -->
+
+    <!-- 1st part -->
+              <div>
+                <div
+                  class="badge badge-soft border-[#EF4444] font-medium text-[#EF4444] bg-[#feecec] px-4 rounded-full"
+                >
+                  <img src="../assets/BugDroid.png" alt="BugDroid" />
+                  <span class="text-[12px]">Bug</span>
+                </div>
+              </div>
+              <!-- 2nd part -->
+              <div>
+                <div
+                  class="badge badge-soft border-2 border-[#ffdd56] badge-warning rounded-full px-4 bg-[#fff8db]"
+                >
+                  <img src="../assets/Lifebuoy.png" alt="Lifebuoy" />
+                  <span class="text-[12px]">help wanted</span>
+                </div>
+              </div>
