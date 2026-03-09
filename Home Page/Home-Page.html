@@ -67,9 +67,27 @@
         id="filter-btn-parent"
         class="p-5 md:p-[24px] flex flex-wrap gap-2 items-center shadow-lg"
       >
-        <button id="all-btn" onclick="loadGithubIssuesData('all')" class="btn btn-primary filter-btn py-2 px-10">All</button>
-        <button id="open-btn" onclick="loadGithubIssuesData('open')" class="btn btn-primary py-2 filter-btn px-10">Open</button>
-        <button id="closed-btn" onclick="loadGithubIssuesData('closed')" class="btn btn-primary py-2 filter-btn px-10">Closed</button>
+        <button
+          id="all-btn"
+          onclick="loadGithubIssuesData('all')"
+          class="btn btn-primary filter-btn py-2 px-10"
+        >
+          All
+        </button>
+        <button
+          id="open-btn"
+          onclick="loadGithubIssuesData('open')"
+          class="btn btn-primary py-2 filter-btn px-10"
+        >
+          Open
+        </button>
+        <button
+          id="closed-btn"
+          onclick="loadGithubIssuesData('closed')"
+          class="btn btn-primary py-2 filter-btn px-10"
+        >
+          Closed
+        </button>
       </section>
 
       <!-- 50 Issues how much issues availavle there part -->
@@ -106,11 +124,20 @@
       </section>
 
       <!-- All Over fitered boxes part -->
-      <section id="filter-boxes-main-parent" class="grid grid-cols-1 gap-x-3 gap-y-5 md:grid-cols-3 lg:grid-cols-4">
+      <section
+        id="filter-boxes-main-parent"
+        class="grid grid-cols-1 gap-x-3 gap-y-5 md:grid-cols-3 lg:grid-cols-4 shadow-lg rounded-md"
+      >
         <!-- box -->
-        <!-- <div class="box shadow-2xl border-t-5 border-t-[green] w-[300px]  space-y-2 rounded-lg">
+      </section>
+
+      <!-- modal -->
+      <section class="mod-box my-20">
+        <!-- Open the modal using ID.showModal() method -->
+        
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
          
-        </div> -->
+        </dialog>
       </section>
     </main>
 
