@@ -27,6 +27,7 @@ let filterBoxesMainParent = document.getElementById("filter-boxes-main-parent");
 let dispalyGithubIssuesData = () => {
     filterBoxesMainParent.innerHTML = "";
     displayDataArray.forEach(data => {
+        
         let createBoxDiv = document.createElement("div");
         createBoxDiv.className = "box shadow-2xl border-t-5 border-t-[green]  space-y-2 rounded-lg";
 
@@ -61,23 +62,23 @@ let dispalyGithubIssuesData = () => {
 
             <!-- ................................ 4-->
 
-            <div class="flex gap-3">
+            <div class="flex gap-1">
               <!-- 1st part -->
               <div>
                 <div
-                  class="badge badge-soft border-[#EF4444] font-medium text-[13px] text-[#EF4444] bg-[#feecec] px-5 rounded-full"
+                  class="badge badge-soft border-[#EF4444] font-medium  text-[#EF4444] bg-[#feecec] px-4 rounded-full"
                 >
                   <img src="../assets/BugDroid.png" alt="BugDroid" />
-                  <span>Bug</span>
+                  <span class="text-[12px]">Bug</span>
                 </div>
               </div>
               <!-- 2nd part -->
               <div>
                 <div
-                  class="badge badge-soft border-2 border-[#ffdd56] badge-warning rounded-full px-5 text-[13px] bg-[#fff8db]"
+                  class="badge badge-soft border-2 border-[#ffdd56] badge-warning rounded-full px-4  bg-[#fff8db]"
                 >
                   <img src="../assets/Lifebuoy.png" alt="Lifebuoy" />
-                  <span>help wanted</span>
+                  <span class="text-[12px]">help wanted</span>
                 </div>
               </div>
             </div>
@@ -92,13 +93,25 @@ let dispalyGithubIssuesData = () => {
        
        `
        filterBoxesMainParent.appendChild(createBoxDiv)
-       console.log(createBoxDiv)
+      
     })
 }
 
 
-
-
+// {
+//     "id": 49,
+//     "title": "Add Google Analytics integration",
+//     "description": "Integrate Google Analytics to track user behavior and improve product decisions.",
+//     "status": "open",
+//     "labels": [
+//         "enhancement"
+//     ],
+//     "priority": "medium",
+//     "author": "analytics_anna",
+//     "assignee": "john_doe",
+//     "createdAt": "2024-01-26T10:45:00Z",
+//     "updatedAt": "2024-01-26T10:45:00Z"
+// }
 
 let filterIssuesData = (command, issueData) => {
 
@@ -106,16 +119,22 @@ let filterIssuesData = (command, issueData) => {
 
     if (command === 'all') {
         filterBtns.forEach(btn => {
-            btn.classList.remove("btn-primary")
+            btn.classList.remove("btn-primary");
         });
-
+        
         allFilterBtn.classList.add("btn-primary");
+        dispalyGithubIssuesData()
     }
+
     else if (command === 'open') {
         filterBtns.forEach(btn => {
             btn.classList.remove("btn-primary")
         });
-        openFilterBtn.classList.add("btn-primary")
+        openFilterBtn.classList.add("btn-primary");
+
+        let openDataFilter = displayDataArray.filter(data => data.status === command);
+        displayDataArray = openDataFilter;
+        dispalyGithubIssuesData()
 
     }
     else if (command === 'closed') {
@@ -123,7 +142,11 @@ let filterIssuesData = (command, issueData) => {
             btn.classList.remove("btn-primary")
         });
 
-        closeFilterBtn.classList.add("btn-primary")
+        closeFilterBtn.classList.add("btn-primary");
+
+        let closedDataFilter = displayDataArray.filter(data => data.status === command);
+        displayDataArray = closedDataFilter;
+        dispalyGithubIssuesData()
     }
 }
 
