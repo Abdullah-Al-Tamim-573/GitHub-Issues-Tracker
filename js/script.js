@@ -1,14 +1,29 @@
 
+let filterBoxParent = document.getElementById("filter-boxes-main-parent");
 let allFilterBtn = document.getElementById("all-btn");
 let openFilterBtn = document.getElementById("open-btn");
 let closeFilterBtn = document.getElementById("closed-btn");
-let issuesCount = document.getElementById("issues-count")
+let issuesCount = document.getElementById("issues-count");
+let searchInput = document.getElementById("search-input");
+let loadingParent = document.getElementById("loading-parent");
 
+function loading(command) {
+     if(command === true) {
+          loadingParent.classList.remove("hidden");
+          filterBoxParent.classList.add("hidden")
+
+     }
+     else {
+        loadingParent.classList.add("hidden");
+        filterBoxParent.classList.remove("hidden")
+     }
+}
 
 let displayDataArray = [];
 
 
 let loadGithubIssuesData = async (command) => {
+  loading(true)
   let url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
   let fetchIsseueResponse = await fetch(url);
   let issueData = await fetchIsseueResponse.json();
@@ -23,24 +38,27 @@ let loadGithubIssuesData = async (command) => {
 
 }
 
+// search values
+let searchData = async () => {
+  let url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+  let fetchIsseueResponse = await fetch(url);
+  let issueDataObj = await fetchIsseueResponse.json();
+  let issueData = issueDataObj.data;
+   let searchInputValue = searchInput.value;
+   
+   let filterSearchData = issueData.filter(data => data.title.toLowerCase().includes(searchInputValue.trim("").toLowerCase()));
+  //  let filterSearchData = issueData.filter(data => data.title.toLowerCase() searchInputValue.trim().toLowerCase());
+   
+   displayDataArray = filterSearchData;
+   issuesCount.innerText = displayDataArray.length;
+   dispalyGithubIssuesData()
+  
+}
+
 
 let filterBoxesMainParent = document.getElementById("filter-boxes-main-parent");
 
-// {
-//     "id": 1,
-//     "title": "Fix navigation menu on mobile devices",
-//     "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-//     "status": "open",
-//     "labels": [
-//         "bug",
-//         "help wanted"
-//     ],
-//     "priority": "high",
-//     "author": "john_doe",
-//     "assignee": "jane_smith",
-//     "createdAt": "2024-01-15T10:30:00Z",
-//     "updatedAt": "2024-01-15T10:30:00Z"
-// }
+
 
 let dispalyGithubIssuesData = () => {
   filterBoxesMainParent.innerHTML = "";
@@ -99,7 +117,7 @@ let dispalyGithubIssuesData = () => {
                   ${label}
              </span>
        `).join("")
-        }
+      }
             </div>
 
           <!-- ................................ 5-->
@@ -121,7 +139,7 @@ let dispalyGithubIssuesData = () => {
        `
     filterBoxesMainParent.appendChild(createBoxDiv);
 
-
+     loading(false)
 
 
 
@@ -216,13 +234,13 @@ let displayBoxModal = (boxModalData) => {
         
         `
 
-        let modalBadgeParent = document.querySelector(".modal-badge-parent");
-        labels.forEach(data => {
-          let span = document.createElement("span");
-          span.classList ="badge badge-soft border-[#EF4444] font-medium text-[#EF4444] bg-[#feecec] px-4 rounded-full";
-          span.innerText = data;
-          modalBadgeParent.appendChild(span);
-        })
+  let modalBadgeParent = document.querySelector(".modal-badge-parent");
+  labels.forEach(data => {
+    let span = document.createElement("span");
+    span.classList = "badge badge-soft border-[#EF4444] font-medium text-[#EF4444] bg-[#feecec] px-4 rounded-full";
+    span.innerText = data;
+    modalBadgeParent.appendChild(span);
+  })
   dialog.showModal()
 }
 
