@@ -23,23 +23,41 @@ let loadGithubIssuesData = async (command) => {
 
 let filterBoxesMainParent = document.getElementById("filter-boxes-main-parent");
 
+// {
+//     "id": 1,
+//     "title": "Fix navigation menu on mobile devices",
+//     "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
+//     "status": "open",
+//     "labels": [
+//         "bug",
+//         "help wanted"
+//     ],
+//     "priority": "high",
+//     "author": "john_doe",
+//     "assignee": "jane_smith",
+//     "createdAt": "2024-01-15T10:30:00Z",
+//     "updatedAt": "2024-01-15T10:30:00Z"
+// }
 
 let dispalyGithubIssuesData = () => {
     filterBoxesMainParent.innerHTML = "";
     displayDataArray.forEach(data => {
-        
+        let {title, description, status, labels, priority, author, assignee} = data
         let createBoxDiv = document.createElement("div");
-        createBoxDiv.className = "box shadow-2xl border-t-5 border-t-[green]  space-y-2 rounded-lg";
+        createBoxDiv.className = `
+        box shadow-2xl border-t-5 ${status === 'open'? 'border-t-[#00a96e]' : 'border-t-[#a755f6]'}  space-y-2 rounded-lg`;
 
         createBoxDiv.innerHTML = `
         <div class="py-6 px-7 space-y-4">
             <!-- ................................ 1-->
             <div class="flex justify-between">
-              <img src="../assets/Open-Status.png" alt="Open Status" />
+              ${status === 'open'? 
+                '<img src="../assets/Open-Status.png" alt="Open Status" />' 
+                : '<img src="../assets/Closed-Status.png" alt="Closed Status" />'}
               <div
                 class="badge badge-soft font-medium text-[12px] text-[#EF4444] bg-[#feecec] px-5 rounded-full"
               >
-                High
+                ${priority.toUpperCase()}
               </div>
             </div>
 
@@ -47,16 +65,15 @@ let dispalyGithubIssuesData = () => {
 
             <div>
               <h4 class="text-[18px] font-semibold">
-                Fix navigation menu on mobile devices
+                ${title}
               </h4>
             </div>
 
             <!-- ................................ 3-->
 
             <div>
-              <p class="text-[#64748B] text-[14px]">
-                The navigation menu doesn't collapse properly on mobile
-                devices...
+              <p class="text-[#64748B] text-[14px] line-clamp-2">
+                ${description}
               </p>
             </div>
 
@@ -87,7 +104,7 @@ let dispalyGithubIssuesData = () => {
           <!-- ................................ 5-->
           <hr />
           <div class="px-5 space-y-1 py-2">
-            <div class="text-[#64748B] text-[12px]">#1by john_doe</div>
+            <div class="text-[#64748B] text-[12px]">#1by ${author}</div>
             <div class="text-[#64748B] text-[12px]">1/15/2024</div>
           </div>
        
@@ -98,20 +115,7 @@ let dispalyGithubIssuesData = () => {
 }
 
 
-// {
-//     "id": 49,
-//     "title": "Add Google Analytics integration",
-//     "description": "Integrate Google Analytics to track user behavior and improve product decisions.",
-//     "status": "open",
-//     "labels": [
-//         "enhancement"
-//     ],
-//     "priority": "medium",
-//     "author": "analytics_anna",
-//     "assignee": "john_doe",
-//     "createdAt": "2024-01-26T10:45:00Z",
-//     "updatedAt": "2024-01-26T10:45:00Z"
-// }
+
 
 let filterIssuesData = (command, issueData) => {
 
