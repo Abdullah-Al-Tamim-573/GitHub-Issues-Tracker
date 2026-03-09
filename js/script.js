@@ -10,7 +10,7 @@ let loadingParent = document.getElementById("loading-parent");
 function loading(command) {
      if(command === true) {
           loadingParent.classList.remove("hidden");
-          filterBoxParent.classList.add("hidden")
+          filterBoxParent.classList.add("hidden");
 
      }
      else {
@@ -40,6 +40,7 @@ let loadGithubIssuesData = async (command) => {
 
 // search values
 let searchData = async () => {
+  loading(true)
   let url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
   let fetchIsseueResponse = await fetch(url);
   let issueDataObj = await fetchIsseueResponse.json();
